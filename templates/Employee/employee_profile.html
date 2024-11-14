@@ -1,0 +1,330 @@
+{% extends 'Employee/base.html' %}
+
+{% block title %}Employee Profile{% endblock %}
+
+{% block content %}
+    <style>
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <div class="container mt-2" style="padding-left: 0; margin-left: 0;">
+        <!-- Image at the top -->
+        <div class="text-center">
+            <img src="{{ profiles.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle"
+                 style="width: 300px; height: 300px; object-fit: cover;">
+        </div>
+
+        <!-- Profile details in a well-structured layout -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form>
+                            <!-- Personal Information -->
+                            <fieldset>
+                                <legend>Personal Information</legend>
+                                <div class="row">
+                                    {% if profiles.employee_id %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Employee ID:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.employee_id }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.first_name %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">First Name:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.first_name }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.last_name %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Last Name:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.last_name }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.middle_name %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Middle Name:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.middle_name }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.date_of_birth %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Date of Birth:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.date_of_birth }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.gender %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Gender:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.gender }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.nationality %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Nationality:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.nationality }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.marital_status %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Marital Status:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.marital_status }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Contact Information -->
+                            <fieldset>
+                                <legend>Contact Information</legend>
+                                <div class="row">
+                                    {% if profiles.email %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Email:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.email }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.phone_number %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Phone Number:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.phone_number }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.address %}
+                                        <div class="col-md-6 mb-3">
+                                            <label class="font-weight-bold">Address:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.address }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.city %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">City:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.city }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.state %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">State:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.state }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.postal_code %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Postal Code:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.postal_code }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.country %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Country:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.country }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Job Details -->
+                            <fieldset>
+                                <legend>Job Details</legend>
+                                <div class="row">
+                                    {% if profiles.job_level %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Job Level:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.job_level }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.job_title %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Job Title:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.job_title }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.employment_type %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Employment Type:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.employment_type }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.job_position %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Job Position:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.job_position }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.date_of_hire %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Date of Hire:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.date_of_hire }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.date_of_termination %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Date of Termination:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.date_of_termination }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.department %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Department:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.department }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.salary %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Salary:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.salary }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.pay_frequency %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Pay Frequency:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.pay_frequency }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Bank Information -->
+                            <fieldset>
+                                <legend>Bank Information</legend>
+                                <div class="row">
+                                    {% if profiles.bank_account_number %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Bank Account Number:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.bank_account_number }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.bank_name %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Bank Name:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.bank_name }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.bank_branch %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Bank Branch:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.bank_branch }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Emergency Contact -->
+                            <fieldset>
+                                <legend>Emergency Contact</legend>
+                                <div class="row">
+                                    {% if profiles.emergency_contact_name %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Contact Name:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.emergency_contact_name }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.emergency_contact_relationship %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Relationship:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.emergency_contact_relationship }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.emergency_contact_phone %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Phone:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.emergency_contact_phone }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.emergency_contact_address %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Address:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.emergency_contact_address }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Status Information -->
+                            <fieldset>
+                                <legend>Status & History</legend>
+                                <div class="row">
+                                    {% if profiles.status %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Status:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.status }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.previous_positions %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Previous Positions:</label>
+                                            <input type="text" class="form-control"
+                                                   value="{{ profiles.previous_positions }}" readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.date_created %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Date Created:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.date_created }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                    {% if profiles.date_modified %}
+                                        <div class="col-md-3 mb-3">
+                                            <label class="font-weight-bold">Date Modified:</label>
+                                            <input type="text" class="form-control" value="{{ profiles.date_modified }}"
+                                                   readonly>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+
+                            <!-- Update Profile Button -->
+                            <div class="d-flex justify-content-center">
+                                <a href="{% url 'employee_update' profiles.employee_id %}"
+                                   class="btn btn-outline-warning d-block w-50 mt-2">Update Profile</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

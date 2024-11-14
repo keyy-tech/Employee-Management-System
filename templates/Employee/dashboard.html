@@ -1,0 +1,105 @@
+{% extends 'Employee/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="container-fluid mt-4">
+        <h1 class="text-center mb-5">Welcome to the Dashboard</h1>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm"
+                     style="background: linear-gradient(45deg, #007bff, #00c6ff); color: white;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Employees</h5>
+                        <p class="card-text display-4">{{ employee_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm"
+                     style="background: linear-gradient(45deg, #28a745, #a8e063); color: white;">
+                    <div class="card-body">
+                        <h5 class="card-title">Departments</h5>
+                        <p class="card-text display-4">28</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm"
+                     style="background: linear-gradient(45deg, #17a2b8, #67e6dc); color: white;">
+                    <div class="card-body">
+                        <h5 class="card-title">Active Projects</h5>
+                        <p class="card-text display-4">10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Gender Distribution</h5>
+                        <canvas id="genderChart" width="50" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Job Level Distribution</h5>
+                        <canvas id="jobLevelChart" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Department Distribution</h5>
+                        <canvas id="departmentChart" width="400" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var genderCtx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(genderCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Male', 'Female'],
+                datasets: [{
+                    data: [{{ male_count }}, {{ female_count }}],
+                    backgroundColor: ['#007bff', '#ff6384']
+                }]
+            }
+        });
+
+        var jobLevelCtx = document.getElementById('jobLevelChart').getContext('2d');
+        var jobLevelChart = new Chart(jobLevelCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Junior', 'Mid-Level', 'Senior', 'Head'],
+                datasets: [{
+                    data: [{{ junior_count }}, {{ mid_level_count }}, {{ senior_count }}, {{ head_count }}],
+                    backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
+                }]
+            }
+        });
+
+        var departmentCtx = document.getElementById('departmentChart').getContext('2d');
+        var departmentChart = new Chart(departmentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Management', 'Software Development', 'Design', 'Data Analysis', 'Quality Assurance', 'Project Management', 'Engineering', 'Data Science', 'Systems Administration', 'DevOps', 'Product Management', 'Sales', 'Marketing', 'Human Resources', 'Customer Support', 'Technical Support', 'IT Support', 'Content Creation', 'SEO', 'Finance', 'Accounting', 'Operations', 'Business Analysis', 'Networking', 'Cybersecurity', 'Machine Learning', 'Artificial Intelligence', 'Database Administration'],
+                datasets: [{
+                    data: {{ department_counts|safe }},
+                    backgroundColor: '#007bff'
+                }]
+            }
+        });
+    </script>
+{% endblock %}

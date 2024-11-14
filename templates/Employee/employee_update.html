@@ -1,0 +1,229 @@
+{% extends 'Employee/base.html' %}
+
+{% block title %}Update Employee Profile{% endblock %}
+
+{% block content %}
+    <style>
+        .form-container {
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <div class="form-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <h1 class="text-center">Update Employee Profile</h1>
+        <form method="post" action="{% url 'employee_update' employee_id=employee_form.instance.employee_id %}"
+              enctype="multipart/form-data" class="mt-3">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <strong>{{ field.label }}: </strong>{{ error }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.first_name.label_tag }}
+                        {{ employee_form.first_name }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.last_name.label_tag }}
+                        {{ employee_form.last_name }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.middle_name.label_tag }}
+                        {{ employee_form.middle_name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.date_of_birth.label_tag }}
+                        {{ employee_form.date_of_birth }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.gender.label_tag }}
+                        {{ employee_form.gender }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.nationality.label_tag }}
+                        {{ employee_form.nationality }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.marital_status.label_tag }}
+                        {{ employee_form.marital_status }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.email.label_tag }}
+                        {{ employee_form.email }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.phone_number.label_tag }}
+                        {{ employee_form.phone_number }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.address.label_tag }}
+                        {{ employee_form.address }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.city.label_tag }}
+                        {{ employee_form.city }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.state.label_tag }}
+                        {{ employee_form.state }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.postal_code.label_tag }}
+                        {{ employee_form.postal_code }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.country.label_tag }}
+                        {{ employee_form.country }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Job Details</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.job_level.label_tag }}
+                        {{ employee_form.job_level }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.job_title.label_tag }}
+                        {{ employee_form.job_title }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.employment_type.label_tag }}
+                        {{ employee_form.employment_type }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.job_position.label_tag }}
+                        {{ employee_form.job_position }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.date_of_hire.label_tag }}
+                        {{ employee_form.date_of_hire }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.date_of_termination.label_tag }}
+                        {{ employee_form.date_of_termination }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.salary.label_tag }}
+                        {{ employee_form.salary }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.department.label_tag }}
+                        {{ employee_form.department }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Salary Information</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.pay_frequency.label_tag }}
+                        {{ employee_form.pay_frequency }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.bank_account_number.label_tag }}
+                        {{ employee_form.bank_account_number }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.bank_name.label_tag }}
+                        {{ employee_form.bank_name }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.bank_branch.label_tag }}
+                        {{ employee_form.bank_branch }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Emergency Contact Information</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.emergency_contact_name.label_tag }}
+                        {{ employee_form.emergency_contact_name }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.emergency_contact_relationship.label_tag }}
+                        {{ employee_form.emergency_contact_relationship }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.emergency_contact_phone.label_tag }}
+                        {{ employee_form.emergency_contact_phone }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.emergency_contact_address.label_tag }}
+                        {{ employee_form.emergency_contact_address }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Employment Status & History</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.status.label_tag }}
+                        {{ employee_form.status }}
+                    </div>
+                    <div class="mb-3 col">
+                        {{ employee_form.previous_positions.label_tag }}
+                        {{ employee_form.previous_positions }}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Additional Information</legend>
+                <div class="row">
+                    <div class="mb-3 col">
+                        {{ employee_form.profile_picture.label_tag }}
+                        {{ employee_form.profile_picture }}
+                    </div>
+                </div>
+            </fieldset>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-primary d-block w-50 mt-3">Update Profile</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
