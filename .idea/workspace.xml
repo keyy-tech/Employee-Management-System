@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9b2689-cfb0-4a78-96dd-ddf03d925314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Task_2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/migrations/0002_remove_employee_performance_notes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/migrations/0003_employee_job_level_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/migrations/0004_alter_employee_emergency_contact_phone_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task_2/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task_2/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task_2/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task_2/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task_2/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/employee_create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/employee_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/employee_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/employee_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Employee/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="ab9b2689-cfb0-4a78-96dd-ddf03d925314" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,8 +90,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
-        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
+        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -143,6 +110,7 @@
       <workItem from="1731585766620" duration="473000" />
       <workItem from="1731586274201" duration="11053000" />
       <workItem from="1731597413570" duration="741000" />
+      <workItem from="1731789848045" duration="336000" />
     </task>
     <servers />
   </component>
